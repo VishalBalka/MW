@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Your Application Name</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation/Header -->
+        <header class="main-header">
+            <nav>
+                <div class="logo">
+                    <a href="/">Your App</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/search/search_results.html">Search</a></li>
+                    <li><a href="/messaging/inbox.html">Messages</a></li>
+                    <li><a href="/accounts/profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-container">
+            <div class="search-header">
+                <form class="search-form" action="/search/search_results.html" method="GET">
+                    <div class="search-input-container">
+                        <input type="text" name="q" id="search-query" value="web development" placeholder="Search for people, interests, topics...">
+                        <button type="submit" class="search-btn"><span class="icon-search"></span></button>
+                    </div>
+                    
+                    <button type="button" class="filter-toggle-btn" aria-expanded="false">
+                        <span class="icon-filter"></span>
+                        <span>Filters</span>
+                    </button>
+                </form>
+                
+                <div class="search-filters" id="search-filters">
+                    <h3>Filter Results</h3>
+                    
+                    <div class="filter-section">
+                        <h4>Result Type</h4>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-people" name="type" value="people" checked>
+                                <label for="filter-people">People</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-posts" name="type" value="posts" checked>
+                                <label for="filter-posts">Posts</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-groups" name="type" value="groups">
+                                <label for="filter-groups">Groups</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-events" name="type" value="events">
+                                <label for="filter-events">Events</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h4>Location</h4>
+                        <div class="filter-options">
+                            <select name="location" id="filter-location">
+                                <option value="">Any Location</option>
+                                <option value="san-francisco">San Francisco, CA</option>
+                                <option value="new-york">New York, NY</option>
+                                <option value="chicago">Chicago, IL</option>
+                                <option value="los-angeles">Los Angeles, CA</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h4>Date</h4>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="radio" id="filter-date-any" name="date" value="any" checked>
+                                <label for="filter-date-any">Any time</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" id="filter-date-day" name="date" value="day">
+                                <label for="filter-date-day">Past 24 hours</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" id="filter-date-week" name="date" value="week">
+                                <label for="filter-date-week">Past week</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="radio" id="filter-date-month" name="date" value="month">
+                                <label for="filter-date-month">Past month</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h4>Interests</h4>
+                        <div class="filter-options tag-filter">
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-interest-tech" name="interest" value="technology" checked>
+                                <label for="filter-interest-tech">Technology</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-interest-design" name="interest" value="design">
+                                <label for="filter-interest-design">Design</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-interest-business" name="interest" value="business">
+                                <label for="filter-interest-business">Business</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-interest-marketing" name="interest" value="marketing">
+                                <label for="filter-interest-marketing">Marketing</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button type="button" class="btn-primary filter-apply">Apply Filters</button>
+                        <button type="button" class="btn-secondary filter-reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="search-results-info">
+                <p>Found <strong>127 results</strong> for "<strong>web development</strong>"</p>
+                
+                <div class="sort-options">
+                    <label for="sort-select">Sort by:</label>
+                    <select name="sort" id="sort-select">
+                        <option value="relevance">Relevance</option>
+                        <option value="recent">Most Recent</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="search-results">
+                <!-- People Results -->
+                <h2>People</h2>
+                <div class="people-results">
+                    <div class="person-card">
+                        <div class="person-avatar">
+                            <img src="/static/images/user1.jpg" alt="John Smith">
+                        </div>
+                        <div class="person-info">
+                            <h3><a href="/profiles/view_profile.html?id=1">John Smith</a></h3>
+                            <p class="person-headline">Senior Web Developer at Tech Solutions</p>
+                            <p class="person-location">San Francisco, CA</p>
+                            <div class="person-interests">
+                                <span class="interest-tag">Web Development</span>
+                                <span class="interest-tag">JavaScript</span>
+                                <span class="interest-tag">React</span>
+                            </div>
+                        </div>
+                        <div class="person-actions">
+                            <button class="btn-primary">Connect</button>
+                            <button class="btn-secondary">Message</button>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="person-avatar">
+                            <img src="/static/images/user2.jpg" alt="Emily Johnson">
+                        </div>
+                        <div class="person-info">
+                            <h3><a href="/profiles/view_profile.html?id=2">Emily Johnson</a></h3>
+                            <p class="person-headline">Frontend Developer & UX Designer</p>
+                            <p class="person-location">New York, NY</p>
+                            <div class="person-interests">
+                                <span class="interest-tag">Web Development</span>
+                                <span class="interest-tag">UI/UX</span>
+                                <span class="interest-tag">CSS</span>
+                            </div>
+                        </div>
+                        <div class="person-actions">
+                            <button class="btn-primary">Connect</button>
+                            <button class="btn-secondary">Message</button>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card">
+                        <div class="person-avatar">
+                            <img src="/static/images/user3.jpg" alt="David Chen">
+                        </div>
+                        <div class="person-info">
+                            <h3><a href="/profiles/view_profile.html?id=3">David Chen</a></h3>
+                            <p class="person-headline">Full Stack Developer at StartupX</p>
+                            <p class="person-location">Seattle, WA</p>
+                            <div class="person-interests">
+                                <span class="interest-tag">Web Development</span>
+                                <span class="interest-tag">Node.js</span>
+                                <span class="interest-tag">MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="person-actions">
+                            <button class="btn-primary">Connect</button>
+                            <button class="btn-secondary">Message</button>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="see-more-link">See more people results</a>
+                </div>
+                
+                <!-- Posts Results -->
+                <h2>Posts</h2>
+                <div class="posts-results">
+                    <div class="post-card">
+                        <div class="post-author">
+                            <img src="/static/images/user4.jpg" alt="Sarah Williams">
+                            <div>
+                                <a href="/profiles/view_profile.html?id=4">Sarah Williams</a>
+                                <span class="post-date">March 18, 2025</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="#">The Future of Web Development: What to Expect in 2026</a></h3>
+                            <p class="post-excerpt">As we approach 2026, web development continues to evolve at a rapid pace. In this article, I discuss emerging trends like WebAssembly, AI-powered development tools, and...</p>
+                            <div class="post-tags">
+                                <span class="tag">Web Development</span>
+                                <span class="tag">Future Tech</span>
+                                <span class="tag">Trends</span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="icon-like"></i> 142</span>
+                            <span><i class="icon-comment"></i> 37</span>
+                            <span><i class="icon-share"></i> 18</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <div class="post-author">
+                            <img src="/static/images/user5.jpg" alt="Michael Brown">
+                            <div>
+                                <a href="/profiles/view_profile.html?id=5">Michael Brown</a>
+                                <span class="post-date">March 15, 2025</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="#">How to Optimize Your Web Development Workflow</a></h3>
+                            <p class="post-excerpt">After years of refining my development process, I've created a workflow that has doubled my productivity. Here are the key tools and practices that have made the biggest difference...</p>
+                            <div class="post-tags">
+                                <span class="tag">Web Development</span>
+                                <span class="tag">Productivity</span>
+                                <span class="tag">Tools</span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <span><i class="icon-like"></i> 89</span>
+                            <span><i class="icon-comment"></i> 21</span>
+                            <span><i class="icon-share"></i> 12</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="see-more-link">See more post results</a>
+                </div>
+                
+                <!-- Groups Results -->
+                <h2>Groups</h2>
+                <div class="groups-results">
+                    <div class="group-card">
+                        <div class="group-image">
+                            <img src="/static/images/group1.jpg" alt="Web Dev Pros">
+                        </div>
+                        <div class="group-info">
+                            <h3><a href="#">Web Dev Pros</a></h3>
+                            <p class="group-description">A community of professional web developers sharing best practices, job opportunities, and technical discussions.</p>
+                            <p class="group-stats">2,487 members • 15-20 posts/week</p>
+                        </div>
+                        <div class="group-actions">
+                            <button class="btn-primary">Join Group</button>
+                        </div>
+                    </div>
+                    
+                    <div class="group-card">
+                        <div class="group-image">
+                            <img src="/static/images/group2.jpg" alt="Frontend Fanatics">
+                        </div>
+                        <div class="group-info">
+                            <h3><a href="#">Frontend Fanatics</a></h3>
+                            <p class="group-description">Dedicated to the art and science of frontend web development, CSS wizardry, and JavaScript frameworks.</p>
+                            <p class="group-stats">1,845 members • 10-15 posts/week</p>
+                        </div>
+                        <div class="group-actions">
+                            <button class="btn-primary">Join Group</button>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="see-more-link">See more group results</a>
+                </div>
+            </div>
+            
+            <div class="search-pagination">
+                <span class="pagination-info">Page 1 of 13</span>
+                <div class="pagination-controls">
+                    <button class="pagination-btn disabled" disabled><span class="icon-previous"></span></button>
+                    <button class="pagination-btn page active">1</button>
+                    <button class="pagination-btn page">2</button>
+                    <button class="pagination-btn page">3</button>
+                    <button class="pagination-btn page">4</button>
+                    <button class="pagination-btn page">5</button>
+                    <button class="pagination-btn"><span class="icon-next"></span></button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/contact.html">Contact Us</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Your Application. All rights reserved.
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/static/js/search.js"></script>
+</body>
+</html>

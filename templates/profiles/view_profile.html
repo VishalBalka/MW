@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Doe - Your Application Name</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation/Header -->
+        <header class="main-header">
+            <nav>
+                <div class="logo">
+                    <a href="/">Your App</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/search/search_results.html">Search</a></li>
+                    <li><a href="/messaging/inbox.html">Messages</a></li>
+                    <li class="active"><a href="/accounts/profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <div class="view-profile-container">
+            <div class="profile-header">
+                <div class="profile-cover">
+                    <img src="/static/images/cover-default.jpg" alt="Profile Cover">
+                </div>
+                
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="/static/images/user-profile.jpg" alt="Jane Doe">
+                    </div>
+                    
+                    <div class="profile-details">
+                        <h1>Jane Doe</h1>
+                        <p class="profile-location">San Francisco, CA</p>
+                        
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-count">143</span>
+                                <span class="stat-label">Connections</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-count">27</span>
+                                <span class="stat-label">Posts</span>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-actions">
+                            <button class="btn-primary">Connect</button>
+                            <a href="/messaging/compose.html?user=janedoe" class="btn-secondary">Message</a>
+                            <button class="btn-icon"><span class="icon-share"></span></button>
+                            <button class="btn-icon"><span class="icon-more"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-tabs">
+                    <ul>
+                        <li class="active"><a href="#about">About</a></li>
+                        <li><a href="#posts">Posts</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#connections">Connections</a></li>
+                    </ul>
+                </div>
+                
+                <div class="profile-tab-content" id="about">
+                    <div class="profile-section">
+                        <h2>About</h2>
+                        <p class="bio">Software developer with a passion for UX design and hiking on weekends.</p>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h2>Interests</h2>
+                        <div class="interest-tags">
+                            <span class="interest-tag">Technology</span>
+                            <span class="interest-tag">Travel</span>
+                            <span class="interest-tag">Music</span>
+                            <span class="interest-tag">Hiking</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h2>Social Media</h2>
+                        <ul class="social-links">
+                            <li>
+                                <span class="icon-globe"></span>
+                                <a href="https://janedoe.com" target="_blank">janedoe.com</a>
+                            </li>
+                            <li>
+                                <span class="icon-twitter"></span>
+                                <a href="https://twitter.com/janedoedev" target="_blank">@janedoedev</a>
+                            </li>
+                            <li>
+                                <span class="icon-instagram"></span>
+                                <a href="https://instagram.com/jane.doe" target="_blank">@jane.doe</a>
+                            </li>
+                            <li>
+                                <span class="icon-linkedin"></span>
+                                <a href="https://linkedin.com/in/janedoe" target="_blank">Jane Doe</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h2>Activity</h2>
+                        <div class="activity-timeline">
+                            <div class="activity-item">
+                                <div class="activity-icon"><span class="icon-post"></span></div>
+                                <div class="activity-content">
+                                    <p>Jane shared a new post: <a href="#">"My experience with React Hooks"</a></p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon"><span class="icon-connection"></span></div>
+                                <div class="activity-content">
+                                    <p>Jane connected with <a href="#">Alex Johnson</a> and <a href="#">3 others</a></p>
+                                    <span class="activity-time">1 week ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon"><span class="icon-like"></span></div>
+                                <div class="activity-content">
+                                    <p>Jane liked <a href="#">"Introduction to GraphQL"</a></p>
+                                    <span class="activity-time">2 weeks ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/contact.html">Contact Us</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Your Application. All rights reserved.
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/static/js/profile-view.js"></script>
+</body>
+</html>

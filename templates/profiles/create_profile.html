@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Profile - Your Application Name</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation/Header -->
+        <header class="main-header">
+            <nav>
+                <div class="logo">
+                    <a href="/">Your App</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/search/search_results.html">Search</a></li>
+                    <li><a href="/messaging/inbox.html">Messages</a></li>
+                    <li class="active"><a href="/accounts/profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <div class="create-profile-container">
+            <h1>Create Your Profile</h1>
+            <p class="intro-text">Complete your profile to connect with others and showcase your interests.</p>
+            
+            <form method="POST" action="/profiles/create" enctype="multipart/form-data">
+                <div class="form-section">
+                    <h2>Profile Picture</h2>
+                    <div class="profile-upload">
+                        <img id="profile-preview" src="/static/images/default-avatar.png" alt="Profile Preview">
+                        <input type="file" id="profile-image" name="profile-image" accept="image/*">
+                        <label for="profile-image" class="btn-secondary">Choose Photo</label>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2>Basic Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="display-name">Display Name</label>
+                        <input type="text" id="display-name" name="display-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" name="bio" rows="4" maxlength="300" placeholder="Tell others about yourself..."></textarea>
+                        <small class="char-count">0/300 characters</small>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2>Interests & Preferences</h2>
+                    
+                    <div class="form-group">
+                        <label>Interests (Select up to 5)</label>
+                        <div class="interest-tags">
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-tech" name="interests" value="technology">
+                                <label for="interest-tech">Technology</label>
+                            </div>
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-travel" name="interests" value="travel">
+                                <label for="interest-travel">Travel</label>
+                            </div>
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-food" name="interests" value="food">
+                                <label for="interest-food">Food</label>
+                            </div>
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-music" name="interests" value="music">
+                                <label for="interest-music">Music</label>
+                            </div>
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-sports" name="interests" value="sports">
+                                <label for="interest-sports">Sports</label>
+                            </div>
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-art" name="interests" value="art">
+                                <label for="interest-art">Art</label>
+                            </div>
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-books" name="interests" value="books">
+                                <label for="interest-books">Books</label>
+                            </div>
+                            <div class="tag-option">
+                                <input type="checkbox" id="interest-gaming" name="interests" value="gaming">
+                                <label for="interest-gaming">Gaming</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="custom-interest">Add Custom Interest</label>
+                        <input type="text" id="custom-interest" name="custom-interest">
+                        <button type="button" class="btn-secondary small">Add</button>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2>Social Media</h2>
+                    
+                    <div class="form-group">
+                        <label for="website">Personal Website</label>
+                        <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="social-twitter">Twitter</label>
+                        <input type="text" id="social-twitter" name="social-twitter" placeholder="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="social-instagram">Instagram</label>
+                        <input type="text" id="social-instagram" name="social-instagram" placeholder="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="social-linkedin">LinkedIn</label>
+                        <input type="text" id="social-linkedin" name="social-linkedin" placeholder="username">
+                    </div>
+                </div>
+                
+                <div class="form-section privacy-settings">
+                    <h2>Privacy Settings</h2>
+                    
+                    <div class="form-group">
+                        <label>Profile Visibility</label>
+                        <select name="profile-visibility">
+                            <option value="public">Public - Anyone can view</option>
+                            <option value="registered">Registered Users Only</option>
+                            <option value="connections">Connections Only</option>
+                        </select>

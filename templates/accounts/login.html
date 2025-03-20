@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Your Application Name</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h1>Login</h1>
+            <form method="POST" action="/accounts/login">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn-primary">Log In</button>
+                </div>
+                
+                <div class="form-links">
+                    <a href="/accounts/forgot-password">Forgot password?</a>
+                    <span class="separator">|</span>
+                    <a href="/accounts/register.html">Create an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="/static/js/validation.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile - Your Application Name</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation/Header -->
+        <header class="main-header">
+            <nav>
+                <div class="logo">
+                    <a href="/">Your App</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/search/search_results.html">Search</a></li>
+                    <li><a href="/messaging/inbox.html">Messages</a></li>
+                    <li class="active"><a href="/accounts/profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <div class="profile-picture">
+                    <img src="/static/images/default-avatar.png" alt="Profile Picture">
+                    <button class="btn-secondary small">Change Photo</button>
+                </div>
+                
+                <div class="sidebar-nav">
+                    <ul>
+                        <li class="active"><a href="/accounts/profile.html">Account Details</a></li>
+                        <li><a href="/profiles/view_profile.html">Public Profile</a></li>
+                        <li><a href="/profiles/edit_profile.html">Edit Profile</a></li>
+                        <li><a href="/accounts/settings.html">Settings</a></li>
+                        <li><a href="/accounts/security.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <h1>Account Details</h1>
+                
+                <div class="account-info">
+                    <div class="info-section">
+                        <h2>Personal Information</h2>
+                        <div class="info-group">
+                            <label>Username:</label>
+                            <span id="username">user123</span>
+                            <a href="#" class="edit-link">Edit</a>
+                        </div>
+                        
+                        <div class="info-group">
+                            <label>Email:</label>
+                            <span id="email">user@example.com</span>
+                            <a href="#" class="edit-link">Edit</a>
+                        </div>
+                        
+                        <div class="info-group">
+                            <label>Member Since:</label>
+                            <span id="join-date">March 15, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h2>Password & Security</h2>
+                        <div class="info-group">
+                            <label>Password:</label>
+                            <span>••••••••</span>
+                            <a href="/accounts/change-password.html" class="edit-link">Change</a>
+                        </div>
+                        
+                        <div class="info-group">
+                            <label>Two-Factor Authentication:</label>
+                            <span id="2fa-status">Disabled</span>
+                            <a href="/accounts/security.html" class="edit-link">Enable</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h2>Account Actions</h2>
+                        <div class="action-buttons">
+                            <a href="/accounts/logout" class="btn-secondary">Log Out</a>
+                            <a href="/accounts/deactivate.html" class="btn-danger">Deactivate Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/contact.html">Contact Us</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Your Application. All rights reserved.
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/static/js/profile.js"></script>
+</body>
+</html>

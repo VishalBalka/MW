@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compose Message | Messaging App</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a69bd;
+            cursor: pointer;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4a69bd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+        }
+        
+        .compose-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            padding: 20px;
+        }
+        
+        .compose-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        .form-group .recipient-input {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 45px;
+        }
+        
+        .recipient {
+            display: inline-flex;
+            align-items: center;
+            background-color: #e6f7ff;
+            border-radius: 16px;
+            padding: 5px 10px;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .recipient-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #4a69bd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            font-size: 10px;
+        }
+        
+        .recipient-remove {
+            margin-left: 5px;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .recipient-remove:hover {
+            color: #666;
+        }
+        
+        .recipient-input input {
+            border: none;
+            padding: 8px;
+            flex-grow: 1;
+            min-width: 100px;
+        }
+        
+        .recipient-input input:focus {
+            outline: none;
+        }
+        
+        .compose-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .compose-options {
+            display: flex;
+            align-items: center;
+        }
+        
+        .compose-options button {
+            padding: 8px 12px;
+            margin-right: 10px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .compose-options button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .compose-options button i {
+            margin-right: 5px;
+        }
+        
+        .send-button {
+            padding: 10px 20px;
+            background-color: #4a69bd;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .send-button:hover {
+            background-color: #3a559a;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            color: #4a69bd;
+            width: fit-content;
+        }
+        
+        .back-button:hover {
+            text-decoration: underline;
+        }
+        
+        .suggestions {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .suggestion-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .suggestion-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo" onclick="window.location.href='inbox.html'">MessageApp</div>
+            <div class="user-menu">
+                <span>John Doe</span>
+                <div class="user-avatar">JD</div>
+            </div>
+        </header>
+        
+        <div class="back-button" onclick="window.location.href='inbox.html'">
+            ← Back to Inbox
+        </div>
+        
+        <div class="compose-container">
+            <div class="compose-header">New Message</div>
+            
+            <form id="compose-form">
+                <div class="form-group">
+                    <label for="recipients">To:</label>
+                    <div class="recipient-input">
+                        <div class="recipient">
+                            <div class="recipient-avatar">SM</div>
+                            <span>Sarah Miller</span>
+                            <span class="recipient-remove">×</span>
+                        </div>
+                        <input type

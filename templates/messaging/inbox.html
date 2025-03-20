@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox | Messaging App</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a69bd;
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4a69bd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+        }
+        
+        .main-content {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-right: 20px;
+        }
+        
+        .nav-item {
+            padding: 12px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .nav-item.active {
+            background-color: #e6f7ff;
+            color: #4a69bd;
+            font-weight: bold;
+        }
+        
+        .nav-item i {
+            margin-right: 10px;
+        }
+        
+        .inbox-container {
+            flex-grow: 1;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .inbox-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .inbox-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .inbox-actions button {
+            padding: 8px 15px;
+            background-color: #4a69bd;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .inbox-actions button:hover {
+            background-color: #3a559a;
+        }
+        
+        .message-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .message-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .message-item:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .message-item.unread {
+            background-color: #f0f7ff;
+        }
+        
+        .message-sender-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .message-content {
+            flex-grow: 1;
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .message-sender {
+            font-weight: bold;
+        }
+        
+        .message-time {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .message-subject {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .message-preview {
+            color: #777;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 500px;
+        }
+
+        .compose-button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color: #4a69bd;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .compose-button:hover {
+            background-color: #3a559a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">MessageApp</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search messages...">
+            </div>
+            <div class="user-menu">
+                <span>John Doe</span>
+                <div class="user-avatar">JD</div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="nav-item active">
+                    <i>📥</i> Inbox
+                </div>
+                <div class="nav-item">
+                    <i>📤</i> Sent
+                </div>
+                <div class="nav-item">
+                    <i>📝</i> Drafts
+                </div>
+                <div class="nav-item">
+                    <i>🗑️</i> Trash
+                </div>
+                <div class="nav-item">
+                    <i>🔖</i> Important
+                </div>
+                
+                <button class="compose-button" onclick="window.location.href='compose.html'">Compose</button>
+            </div>
+            
+            <div class="inbox-container">
+                <div class="inbox-header">
+                    <div class="inbox-title">Inbox (3)</div>
+                    <div class="inbox-actions">
+                        <button>Refresh</button>
+                    </div>
+                </div>
+                
+                <ul class="message-list">
+                    <li class="message-item unread" onclick="window.location.href='conversation.html?id=1'">
+                        <div class="message-sender-avatar">SM</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="message-sender">Sarah Miller</span>
+                                <span class="message-time">10:24 AM</span>
+                            </div>
+                            <div class="message-subject">Project Update</div>
+                            <div class="message-preview">Hi John, I wanted to share some updates about our current project. The client has requested some changes to the initial design...</div>
+                        </div>
+                    </li>
+                    
+                    <li class="message-item unread" onclick="window.location.href='conversation.html?id=2'">
+                        <div class="message-sender-avatar">RJ</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="message-sender">Robert Johnson</span>
+                                <span class="message-time">Yesterday</span>
+                            </div>
+                            <div class="message-subject">Team Meeting</div>
+                            <div class="message-preview">Just a reminder that we have a team meeting scheduled for tomorrow at 2 PM. Please prepare your weekly updates...</div>
+                        </div>
+                    </li>
+                    
+                    <li class="message-item" onclick="window.location.href='conversation.html?id=3'">
+                        <div class="message-sender-avatar">AL</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="message-sender">Amy Lee</span>
+                                <span class="message-time">Mar 19</span>
+                            </div>
+                            <div class="message-subject">Question about the new feature</div>
+                            <div class="message-preview">Hey John, I was looking at the documentation for the new feature we're implementing, and I had a question about...</div>
+                        </div>
+                    </li>
+                    
+                    <li class="message-item" onclick="window.location.href='conversation.html?id=4'">
+                        <div class="message-sender-avatar">DP</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="message-sender">David Parker</span>
+                                <span class="message-time">Mar 18</span>
+                            </div>
+                            <div class="message-subject">Client Feedback</div>
+                            <div class="message-preview">I just got off a call with the client, and they're very happy with the progress we've made so far. They did have a few minor...</div>
+                        </div>
+                    </li>
+                    
+                    <li class="message-item" onclick="window.location.href='conversation.html?id=5'">
+                        <div class="message-sender-avatar">JW</div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="message-sender">Jennifer Wilson</span>
+                                <span class="message-time">Mar 17</span>
+                            </div>
+                            <div class="message-subject">Office Happy Hour</div>
+                            <div class="message-preview">Hi everyone, We're planning to have a happy hour this Friday after work. We'll be going to the new restaurant down the street...</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functionality can be added here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Inbox page loaded');
+        });
+    </script>
+</body>
+</html>

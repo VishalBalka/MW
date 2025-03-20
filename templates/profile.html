@@ -1,0 +1,41 @@
+{% extends 'matrimony_app/base.html' %}
+
+{% block title %}{{ profile.user.username }}'s Profile{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        {% if profile.profile_photo %}
+            <img src="{{ profile.profile_photo.url }}" class="img-fluid rounded" alt="Profile Photo">
+        {% else %}
+            <div class="bg-secondary text-white p-5 text-center rounded">
+                No Profile Photo
+            </div>
+        {% endif %}
+        
+        {% if user == profile.user %}
+            <a href="{% url 'profile_edit' %}" class="btn btn-primary mt-3 d-block">Edit Profile</a>
+        {% endif %}
+    </div>
+    
+    <div class="col-md-8">
+        <h2>{{ profile.user.get_full_name }}</h2>
+        <p class="text-muted">{{ profile.age }} years • {{ profile.get_gender_display }} • {{ profile.location }}</p>
+        
+        <div class="card mb-3">
+            <div class="card-header">About Me</div>
+            <div class="card-body">
+                <p>{{ profile.bio }}</p>
+            </div>
+        </div>
+        
+        <div class="card mb-3">
+            <div class="card-header">Personal Details</div>
+            <div class="card-body">
+                <p><strong>Profession:</strong> {{ profile.profession }}</p>
+                <!-- Add other details relevant to matrimony -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
